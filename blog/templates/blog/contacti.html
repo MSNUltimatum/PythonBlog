@@ -1,0 +1,25 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+    <h1>{{ title }}</h1>
+{% endblock %}
+
+{% block aside_block %}
+    <h4 class="mt-2">Интересные статьи</h4>
+    <img src="https://itproger.com/img/news/1591879929.jpg" class="img-thumbnail"/>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid aspernatur earum iure maxime nulla,
+        pariatur praesentium quam quas quia quibusdam, repellat soluta suscipit voluptates?</p>
+    <a href="https://itproger.com/news/285" target="_blank">
+        <button class="btn btn-warning">Посмотреть</button>
+    </a>
+    <img src="https://itproger.com/img/news/1591879929.jpg" class="img-thumbnail mt-4"/>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid aspernatur earum iure maxime nulla,
+        pariatur praesentium quam quas quia quibusdam, repellat soluta suscipit voluptates?</p>
+    <a href="https://itproger.com/news/285" target="_blank">
+        <button class="btn btn-warning">Посмотреть</button>
+    </a>
+{% endblock %}

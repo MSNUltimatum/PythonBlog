@@ -1,0 +1,48 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+    <h1>{{ title }}</h1>
+    <div class="alert alert-light">
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.text | safe }}</p>
+        <div class="row">
+            <div>
+                <img src="{{ post.avtor.profile.img.url }}" alt="{{ post.avtor }}" class="user_images">
+            </div>
+            <div class="mt-2">
+                <span class="text-muted">Публикация: {{ post.date | date:"j E Y в H:i" }}</span>
+                {% if post.avtor %}
+                    <p>Автор: <a href="{% url 'user-news' post.avtor %}">{{ post.avtor }}</a></p>
+                {% else %}
+                    <p>Автор: <b>Админ</b></p>
+                {% endif %}
+                <p>Просмотры: <b>{{ post.views }}</b></p>
+            </div>
+        </div>
+    {% if object.avtor == user %}
+    <hr>
+        <a href="{% url 'news-update' object.id %}" class="btn btn-info"> Обновить статью</a>
+        <a href="{% url 'news-delete' object.id %}" class="btn btn-danger"> Удалить статью</a>
+    {% endif %}
+    </div>
+{% endblock %}
+
+{% block aside_block %}
+    <h4 class="mt-2">Интересные статьи</h4>
+    <img src="https://itproger.com/img/news/1591879929.jpg" class="img-thumbnail"/>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid aspernatur earum iure maxime nulla,
+        pariatur praesentium quam quas quia quibusdam, repellat soluta suscipit voluptates?</p>
+    <a href="https://itproger.com/news/285" target="_blank">
+        <button class="btn btn-warning">Посмотреть</button>
+    </a>
+    <img src="https://itproger.com/img/news/1591879929.jpg" class="img-thumbnail mt-4"/>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid aspernatur earum iure maxime nulla,
+        pariatur praesentium quam quas quia quibusdam, repellat soluta suscipit voluptates?</p>
+    <a href="https://itproger.com/news/285" target="_blank">
+        <button class="btn btn-warning">Посмотреть</button>
+    </a>
+{% endblock %}
